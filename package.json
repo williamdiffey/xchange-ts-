@@ -1,0 +1,11 @@
+{
+  "name": "xchange-server",
+  "version": "1.0.0",
+  "description": "server for xchange app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "William Diffey",
+  "license": "ISC"
+}
