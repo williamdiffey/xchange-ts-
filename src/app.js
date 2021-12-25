@@ -7,14 +7,12 @@ const { NODE_ENV } = require('./config')
 const errorHandler = require('./middleware/error-handler')
 
 const app = express()
+const morganOption = NODE_ENV === 'production' ? 'tiny' : 'common'
+const server = require('http').Server(app)
 
-app.use(
-  morgan(NODE_ENV === 'production' ? 'tiny' : 'common', {
-    skip: () => NODE_ENV === 'test',
-  }),
-)
 app.use(cors())
 app.use(helmet())
+app.use(morgan(morganOption))
 
 app.get('/', (req, res) => {
   res.send('Hello, xchange!')
@@ -22,4 +20,4 @@ app.get('/', (req, res) => {
 
 app.use(errorHandler)
 
-module.exports = app
+module.exports = { server, app }
