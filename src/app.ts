@@ -4,11 +4,8 @@ import morgan from 'morgan'
 import cors from 'cors'
 import helmet from 'helmet'
 
-
 import { NODE_ENV } from './config'
-import  errorHandler from './middleware/error-handler'
-
-
+import errorHandler from './middleware/error-handler'
 
 dotenv.config()
 
